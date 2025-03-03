@@ -1,9 +1,10 @@
 void rotate(int* nums, int numsSize, int k) {
 
-    if (numsSize == 0) return;
+    if (numsSize == 0 || k == 0) return;
     k = k%numsSize;
+    if (k == 0) return;
 
-    int* temp = (int*)malloc(k*sizeof(int));
+    int temp[k];
     for (int i = numsSize-k; i < numsSize; i++) {
         temp[i-numsSize+k] = nums[i];
     }
