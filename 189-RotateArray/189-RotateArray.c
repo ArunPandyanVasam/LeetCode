@@ -1,31 +1,26 @@
+
+void rotateRight(int* nums, int low, int high);
+
+
 void rotate(int* nums, int numsSize, int k) {
 
-    if (numsSize <= 1 || k == 0) {
-        return;
-    }
-
     k = k % numsSize;
-    if (k == 0) {
-        return;
-    }
+    if (k == 0) return;
 
-    int* temp = (int*)malloc(k * sizeof(int));
-    if (temp == NULL) {
-        return;
-    }
 
-    for (int i = numsSize - k; i < numsSize; i++) {
-        temp[i - (numsSize - k)] = nums[i];
-    }
+    rotateRight(nums, 0, numsSize-k-1);
+    rotateRight(nums, numsSize-k, numsSize-1);
+    rotateRight(nums, 0, numsSize-1);
+}
 
-    for (int i = numsSize - k - 1; i >= 0; i--) {
-        nums[i + k] = nums[i];
-    }
+void rotateRight(int* nums, int low, int high) {
 
-    for (int i = 0; i < k; i++) {
-        nums[i] = temp[i];
+    while (low <= high) {
+        int temp = nums[high];
+        nums[high] = nums[low];
+        nums[low] = temp;
+        low++;
+        high--;
     }
-
-    free(temp);
 
 }
