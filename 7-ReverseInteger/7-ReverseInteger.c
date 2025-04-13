@@ -1,15 +1,13 @@
-// Last updated: 13/04/2025, 08:40:47
+// Last updated: 13/04/2025, 08:41:24
 int reverse(int x) {
     int reverseNumber = 0;
 
     while (x != 0) {
         int digit = x % 10;
 
-        // Check for overflow (positive side)
         if (reverseNumber > INT_MAX / 10 || 
            (reverseNumber == INT_MAX / 10 && digit > 7)) return 0;
 
-        // Check for underflow (negative side)
         if (reverseNumber < INT_MIN / 10 || 
            (reverseNumber == INT_MIN / 10 && digit < -8)) return 0;
 
