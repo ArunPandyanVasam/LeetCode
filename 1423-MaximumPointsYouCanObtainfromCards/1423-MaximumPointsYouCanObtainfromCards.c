@@ -1,4 +1,4 @@
-// Last updated: 08/04/2025, 09:37:34
+// Last updated: 21/04/2025, 08:34:30
 int maxScore(int* cardPoints, int cardPointsSize, int k) {
     int lSum = 0, rSum = 0, maxSum = 0;
     for (int i = 0; i < k; i++) {
